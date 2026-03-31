@@ -1,0 +1,10 @@
+.git
+.github
+.astro
+.cache
+*.log
+.DS_Store
+.env.local
+.vercel
+node_modules
+src/assets/works

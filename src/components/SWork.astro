@@ -1,18 +1,22 @@
 ---
 import AWork from './AWork.astro'
 
+// Update these URLs to your CDN (Bunny CDN, Cloudinary, etc.)
+// Local paths are for development, external URLs for production
+const CDN_BASE = import.meta.env.PUBLIC_CDN_URL || '/src/assets/works/'
+
 const projects = [
-  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', src: '/src/assets/works/Always Remember Us This Way - Lady Gaga.mp4' },
-  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', src: '/src/assets/works/Dare to Love Me - Avril Lavigne.mp4' },
-  { caption: 'Gethsemane - Sleep Token', site: '#', src: '/src/assets/works/Gethsemane - Sleep Token.mp4' },
-  { caption: 'Iris - The Goo Goo Dolls', site: '#', src: '/src/assets/works/Iris - The Goo Goo Dolls.mp4' },
-  { caption: 'Karna Su Sayang - Near', site: '#', src: '/src/assets/works/Karna Su Sayang - Near.mp4' },
-  { caption: 'Lips of An Angel - Hinder', site: '#', src: '/src/assets/works/Lips of An Angel - Hinder.mp4' },
-  { caption: 'LOVE - Olivia Rodrigo', site: '#', src: '/src/assets/works/LOVE - Olivia Rodrigo.mp4' },
-  { caption: 'n_A - Bring Me The Horizon', site: '#', src: '/src/assets/works/n_A - Bring Me The Horizon.mp4' },
-  { caption: 'Our Song - Taylor Swift', site: '#', src: '/src/assets/works/Our Song - Taylor Swift.mp4' },
-  { caption: 'That\'s So True - Gracie Abrams', site: '#', src: '/src/assets/works/That_s So True - Gracie Abrams.mp4' },
-  { caption: 'True Colors - Trolls OST', site: '#', src: '/src/assets/works/True Colors - Trolls OST_.mp4' },
+  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', src: `${CDN_BASE}Always Remember Us This Way - Lady Gaga.mp4` },
+  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', src: `${CDN_BASE}Dare to Love Me - Avril Lavigne.mp4` },
+  { caption: 'Gethsemane - Sleep Token', site: '#', src: `${CDN_BASE}Gethsemane - Sleep Token.mp4` },
+  { caption: 'Iris - The Goo Goo Dolls', site: '#', src: `${CDN_BASE}Iris - The Goo Goo Dolls.mp4` },
+  { caption: 'Karna Su Sayang - Near', site: '#', src: `${CDN_BASE}Karna Su Sayang - Near.mp4` },
+  { caption: 'Lips of An Angel - Hinder', site: '#', src: `${CDN_BASE}Lips of An Angel - Hinder.mp4` },
+  { caption: 'LOVE - Olivia Rodrigo', site: '#', src: `${CDN_BASE}LOVE - Olivia Rodrigo.mp4` },
+  { caption: 'n_A - Bring Me The Horizon', site: '#', src: `${CDN_BASE}n_A - Bring Me The Horizon.mp4` },
+  { caption: 'Our Song - Taylor Swift', site: '#', src: `${CDN_BASE}Our Song - Taylor Swift.mp4` },
+  { caption: 'That\'s So True - Gracie Abrams', site: '#', src: `${CDN_BASE}That_s So True - Gracie Abrams.mp4` },
+  { caption: 'True Colors - Trolls OST', site: '#', src: `${CDN_BASE}True Colors - Trolls OST_.mp4` },
 ]
 
 function shuffle(array) {
