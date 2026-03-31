@@ -7,7 +7,8 @@ const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nesya.dev',
+  site: 'https://git34301-create.github.io/nesya-portfolio/',
+  base: '/nesya-portfolio/',
 
   scopedStyleStrategy: 'class',
 
