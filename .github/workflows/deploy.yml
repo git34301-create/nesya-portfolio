@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio
 
 on:
   push:
@@ -8,11 +8,9 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,24 +26,10 @@ jobs:
       
       - run: touch ./docs/.nojekyll
       
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: built-site
-          path: ./docs
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: built-site
-          path: ./docs
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/
+          git commit -m "Deploy: build portfolio" || echo "No changes to commit"
+          git push
