@@ -1,9 +1,10 @@
 ---
 import AWork from './AWork.astro'
+import { getImage } from 'astro:assets'
 
-// Update these URLs to your CDN (Bunny CDN, Cloudinary, etc.)
-// Local paths are for development, external URLs for production
-const CDN_BASE = import.meta.env.PUBLIC_CDN_URL || '/src/assets/works/'
+// Use getBaseURL for GitHub Pages subdirectory support
+const basePath = import.meta.env.BASE_URL
+const CDN_BASE = import.meta.env.PUBLIC_CDN_URL || `${basePath}src/assets/works/`
 
 const projects = [
   { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', src: `${CDN_BASE}Always Remember Us This Way - Lady Gaga.mp4` },
