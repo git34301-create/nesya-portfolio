@@ -2,30 +2,22 @@
 import AWork from './AWork.astro'
 import { getImage } from 'astro:assets'
 
-// Google Drive video IDs for streaming
+// Vercel Blob video URLs - fast CDN streaming
 const videos = [
-  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', id: '15BPt30Q7JhDPmYexK6oXva2_GNl556AG' },
-  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', id: '1YgIFJBuNpqdpySb4j0K1JeOPjSGMGTof' },
-  { caption: 'Gethsemane - Sleep Token', site: '#', id: '1zdNQmNYI9fJEm56dFAimNZXM_21fqQDJ' },
-  { caption: 'Iris - The Goo Goo Dolls', site: '#', id: '1lYXM0mii_QRIamh13OAPAqrexDWhhhHH' },
-  { caption: 'Karna Su Sayang - Near', site: '#', id: '1RxpDqfjT62LS-mG5Gdug0sublkYsP175' },
-  { caption: 'Lips of An Angel - Hinder', site: '#', id: '1F9zWgg_Qqw8vKCHi4ReFuPfaITBwUT4r' },
-  { caption: 'LOVE - Olivia Rodrigo', site: '#', id: '1XwX05BHUof-EkpaDfz-X-6d5T_-VAkaV' },
-  { caption: 'n_A - Bring Me The Horizon', site: '#', id: '1GfvAT4tNMYz-SL8ej4y2tHHZg0LgFaMh' },
-  { caption: 'Our Song - Taylor Swift', site: '#', id: '1WYocBZgVJXNhet5nzCieHrYeAxy5CEhg' },
-  { caption: 'That\'s So True - Gracie Abrams', site: '#', id: '11x1NQ5lsub-uz-NsfXy-d63Sp1mxkYJR' },
-  { caption: 'True Colors - Trolls OST', site: '#', id: '1B4_RxTVOmC0lp56Y5iwgeRrpOViDcuDM' },
+  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Always%20Remember%20Us%20This%20Way%20-%20Lady%20Gaga.mp4' },
+  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Dare%20to%20Love%20Me%20-%20Avril%20Lavigne.mp4' },
+  { caption: 'Gethsemane - Sleep Token', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Gethsemane%20-%20Sleep%20Token.mp4' },
+  { caption: 'Iris - The Goo Goo Dolls', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Iris%20-%20The%20Goo%20Goo%20Dolls.mp4' },
+  { caption: 'Karna Su Sayang - Near', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Karna%20Su%20Sayang%20-%20Near.mp4' },
+  { caption: 'Lips of An Angel - Hinder', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Lips%20of%20An%20Angel%20-%20Hinder.mp4' },
+  { caption: 'LOVE - Olivia Rodrigo', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/LOVE%20-%20Olivia%20Rodrigo.mp4' },
+  { caption: 'n_A - Bring Me The Horizon', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/n_A%20-%20Bring%20Me%20The%20Horizon.mp4' },
+  { caption: 'Our Song - Taylor Swift', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/Our%20Song%20-%20Taylor%20Swift.mp4' },
+  { caption: 'That\'s So True - Gracie Abrams', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/That_s%20So%20True%20-%20Gracie%20Abrams.mp4' },
+  { caption: 'True Colors - Trolls OST', site: '#', src: 'https://auc0n82ue0cokmac.public.blob.vercel-storage.com/True%20Colors%20-%20Trolls%20OST_.mp4' },
 ]
 
-// Convert Google Drive ID to streaming URL
-const getVideoUrl = (id: string) => {
-  return `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=1`
-}
-
-const projects = videos.map(video => ({
-  ...video,
-  src: getVideoUrl(video.id)
-}))
+const projects = videos
 
 function shuffle(array) {
   let currentIndex = array.length
