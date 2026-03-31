@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   site: 'https://git34301-create.github.io/nesya-portfolio/',
   base: '/nesya-portfolio/',
+  outDir: './docs',
 
   scopedStyleStrategy: 'class',
 
