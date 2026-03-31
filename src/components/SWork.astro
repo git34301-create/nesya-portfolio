@@ -19,7 +19,7 @@ const videos = [
 
 // Convert Google Drive ID to streaming URL
 const getVideoUrl = (id: string) => {
-  return `https://drive.google.com/uc?export=preview&id=${id}`
+  return `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=1`
 }
 
 const projects = videos.map(video => ({
