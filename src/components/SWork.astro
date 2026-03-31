@@ -2,23 +2,30 @@
 import AWork from './AWork.astro'
 import { getImage } from 'astro:assets'
 
-// Google Drive video hosting
-const GOOGLE_DRIVE_FOLDER = '1uCMcp56PzGTJQkumkTcw3nDE2Lw316Vk'
-
-// Video file names - will fetch from Google Drive
-const projects = [
-  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', name: 'Always Remember Us This Way - Lady Gaga' },
-  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', name: 'Dare to Love Me - Avril Lavigne' },
-  { caption: 'Gethsemane - Sleep Token', site: '#', name: 'Gethsemane - Sleep Token' },
-  { caption: 'Iris - The Goo Goo Dolls', site: '#', name: 'Iris - The Goo Goo Dolls' },
-  { caption: 'Karna Su Sayang - Near', site: '#', name: 'Karna Su Sayang - Near' },
-  { caption: 'Lips of An Angel - Hinder', site: '#', name: 'Lips of An Angel - Hinder' },
-  { caption: 'LOVE - Olivia Rodrigo', site: '#', name: 'LOVE - Olivia Rodrigo' },
-  { caption: 'n_A - Bring Me The Horizon', site: '#', name: 'n_A - Bring Me The Horizon' },
-  { caption: 'Our Song - Taylor Swift', site: '#', name: 'Our Song - Taylor Swift' },
-  { caption: 'That\'s So True - Gracie Abrams', site: '#', name: 'That\'s So True - Gracie Abrams' },
-  { caption: 'True Colors - Trolls OST', site: '#', name: 'True Colors - Trolls OST' },
+// Google Drive video IDs for streaming
+const videos = [
+  { caption: 'Always Remember Us This Way - Lady Gaga', site: '#', id: '15BPt30Q7JhDPmYexK6oXva2_GNl556AG' },
+  { caption: 'Dare to Love Me - Avril Lavigne', site: '#', id: '1YgIFJBuNpqdpySb4j0K1JeOPjSGMGTof' },
+  { caption: 'Gethsemane - Sleep Token', site: '#', id: '1zdNQmNYI9fJEm56dFAimNZXM_21fqQDJ' },
+  { caption: 'Iris - The Goo Goo Dolls', site: '#', id: '1lYXM0mii_QRIamh13OAPAqrexDWhhhHH' },
+  { caption: 'Karna Su Sayang - Near', site: '#', id: '1RxpDqfjT62LS-mG5Gdug0sublkYsP175' },
+  { caption: 'Lips of An Angel - Hinder', site: '#', id: '1F9zWgg_Qqw8vKCHi4ReFuPfaITBwUT4r' },
+  { caption: 'LOVE - Olivia Rodrigo', site: '#', id: '1XwX05BHUof-EkpaDfz-X-6d5T_-VAkaV' },
+  { caption: 'n_A - Bring Me The Horizon', site: '#', id: '1GfvAT4tNMYz-SL8ej4y2tHHZg0LgFaMh' },
+  { caption: 'Our Song - Taylor Swift', site: '#', id: '1WYocBZgVJXNhet5nzCieHrYeAxy5CEhg' },
+  { caption: 'That\'s So True - Gracie Abrams', site: '#', id: '11x1NQ5lsub-uz-NsfXy-d63Sp1mxkYJR' },
+  { caption: 'True Colors - Trolls OST', site: '#', id: '1B4_RxTVOmC0lp56Y5iwgeRrpOViDcuDM' },
 ]
+
+// Convert Google Drive ID to streaming URL
+const getVideoUrl = (id: string) => {
+  return `https://drive.google.com/uc?export=download&id=${id}`
+}
+
+const projects = videos.map(video => ({
+  ...video,
+  src: getVideoUrl(video.id)
+}))
 
 function shuffle(array) {
   let currentIndex = array.length
